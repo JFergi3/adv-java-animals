@@ -35,8 +35,27 @@ public class AnimalCreator {
                     System.out.println("Invalid Choice");
 
             }
-
-
         }
     }
+
+    private Dog createDog(){
+        String name = readNonEmptyString("Enter the dog's name: ");
+        boolean friendly = readBoolean("Is the dog friendly? (true/false): ");
+        return new Dog(friendly, name);
+    }
+
+    private Cat createCat(){
+        String name = readNonEmptyString("Enter the cat's name: ");
+        int miceKilled = readInt("Enter a number of mice killed: ");
+        return new Cat(miceKilled, name);
+    }
+
+    private Teacher createTeacher(){
+        String name = readNonEmptyString("Enter the teacher name: ");
+        int age = readInt("Enter the teacher's age: ");
+        return new Teacher(age, name);
+    }
+
+
+
 }
