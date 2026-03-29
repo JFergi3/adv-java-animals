@@ -1,6 +1,7 @@
 package us.mattgreen;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class AnimalCreator {
@@ -16,5 +17,26 @@ public class AnimalCreator {
     public AnimalCreator(ArrayList<Talkable> zoo) {
         this.zoo = zoo;
         this.scanner = new Scanner(System.in);
+    }
+
+    public void addAnimalToList(){
+        // Set up to use a break versus a return.
+        boolean validChoice = false;
+
+        while (!validChoice) {
+            System.out.println("What Animal would you like to create? (dog, cat, or teacher): ");
+            String choice = scanner.nextLine().trim().toLowerCase(); //normalize input
+
+            switch (choice) {
+                case "dog": zoo.add(createDog()); validChoice = true; break;
+                case "cat": zoo.add(createCat()); validChoice = true; break;
+                case "teacher": zoo.add(createTeacher()); validChoice = true; break;
+                default:
+                    System.out.println("Invalid Choice");
+
+            }
+
+
+        }
     }
 }
