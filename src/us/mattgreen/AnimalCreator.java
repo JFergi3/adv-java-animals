@@ -56,6 +56,38 @@ public class AnimalCreator {
         return new Teacher(age, name);
     }
 
+    private String readNonEmptyString(String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            String input = scanner.nextLine().trim();
 
+            if (!input.isEmpty()) {
+                return input;
+            }
 
+            System.out.println("Input cannot be blank. ");
+        }
+    }
+
+    private int readInt(String prompt) {
+        while (true) {
+            try {
+                System.out.print(prompt);
+                return Integer.parseInt(scanner.nextLine().trim());
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid number. Please enter whole number.");
+            }
+        }
+    }
+
+    private boolean readBoolean(String prompt) {
+        while(true) {
+                System.out.print(prompt);
+                String input = scanner.nextLine().trim().toLowerCase();
+
+                if (input.equals("yes") || input.equals("y")) return true;
+                if (input.equals("no") || input.equals("n")) return false;
+            System.out.println("Enter yer or no.");
+        }
+    }
 }
