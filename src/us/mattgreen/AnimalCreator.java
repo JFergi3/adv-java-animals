@@ -27,7 +27,7 @@ public class AnimalCreator {
             System.out.println("What Animal would you like to create? (dog, cat, or teacher): ");
             String choice = scanner.nextLine().trim().toLowerCase(); //normalize input
 
-            switch (choice) {
+            switch (choice) { // clean selection for one variable
                 case "dog": zoo.add(createDog()); validChoice = true; break;
                 case "cat": zoo.add(createCat()); validChoice = true; break;
                 case "teacher": zoo.add(createTeacher()); validChoice = true; break;
@@ -62,7 +62,7 @@ public class AnimalCreator {
             String input = scanner.nextLine().trim();
 
             if (!input.isEmpty()) {
-                return input;
+                return input; // cannot be blank
             }
 
             System.out.println("Input cannot be blank. ");
@@ -73,7 +73,7 @@ public class AnimalCreator {
         while (true) {
             try {
                 System.out.print(prompt);
-                return Integer.parseInt(scanner.nextLine().trim());
+                return Integer.parseInt(scanner.nextLine().trim()); // safe parse
             } catch (NumberFormatException e) {
                 System.out.println("Invalid number. Please enter whole number.");
             }
